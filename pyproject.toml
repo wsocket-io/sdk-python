@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "wsocket-sdk"
+name = "wsocket-io"
 version = "0.1.0"
 description = "wSocket Realtime Pub/Sub SDK for Python"
 readme = "README.md"

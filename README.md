@@ -2,13 +2,13 @@
 
 Official Python SDK for [wSocket](https://wsocket.io) — Realtime Pub/Sub over WebSockets.
 
-[![PyPI](https://img.shields.io/pypi/v/wsocket-sdk)](https://pypi.org/project/wsocket-sdk/)
+[![PyPI](https://img.shields.io/pypi/v/wsocket-io)](https://pypi.org/project/wsocket-io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Installation
 
 ```bash
-pip install wsocket-sdk
+pip install wsocket-io
 ```
 
 ## Quick Start
