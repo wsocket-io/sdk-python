@@ -18,7 +18,7 @@ import asyncio
 from wsocket import create_client
 
 async def main():
-    client = create_client("wss://your-server.com", "your-api-key")
+    client = create_client("wss://node00.wsocket.online", "your-api-key")
     await client.connect()
 
     chat = client.channel("chat:general")
