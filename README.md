@@ -72,6 +72,36 @@ def handle_history(result):
 chat.history(limit=50)
 ```
 
+## Push Notifications
+
+```python
+from wsocket_io import PushClient
+
+push = PushClient('https://your-server.com', 'your-api-key', 'your-app-id')
+
+# Register device
+push.register_fcm('device-token', 'user-123')
+
+# Send to member
+push.send_to_member('user-123', {'title': 'Hello', 'body': 'World'})
+
+# Broadcast
+push.broadcast({'title': 'News', 'body': 'Breaking news!'})
+
+# Channel targeting
+push.add_channel('subscription-id', 'alerts')
+push.remove_channel('subscription-id', 'alerts')
+
+# VAPID key
+vapid_key = push.get_vapid_key()
+
+# List subscriptions
+subs = push.list_subscriptions('user-123')
+
+# Delete subscription
+push.delete_subscription('subscription-id')
+```
+
 ## Requirements
 
 - Python >= 3.9
