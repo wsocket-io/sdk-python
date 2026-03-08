@@ -691,6 +691,32 @@ class PushClient:
             **payload,
         })
 
+    async def add_channel(self, member_id: str, channel: str) -> dict:
+        """Add a channel to a member's push subscriptions."""
+        return await self._api("POST", "/api/push/channels/add", {
+            "memberId": member_id,
+            "channel": channel,
+        })
+
+    async def remove_channel(self, member_id: str, channel: str) -> dict:
+        """Remove a channel from a member's push subscriptions."""
+        return await self._api("POST", "/api/push/channels/remove", {
+            "memberId": member_id,
+            "channel": channel,
+        })
+
+    async def list_subscriptions(self, member_id: str | None = None, platform: str | None = None, limit: int | None = None) -> dict:
+        """List push subscriptions with optional filters."""
+        params = []
+        if member_id:
+            params.append(f"memberId={member_id}")
+        if platform:
+            params.append(f"platform={platform}")
+        if limit:
+            params.append(f"limit={limit}")
+        qs = ("?" + "&".join(params)) if params else ""
+        return await self._api("GET", f"/api/push/subscriptions{qs}")
+
     async def get_stats(self) -> dict:
         """Get push notification statistics."""
         res = await self._api("GET", f"/api/admin/apps/{self._app_id}/push/stats")
