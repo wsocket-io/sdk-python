@@ -665,6 +665,11 @@ class PushClient:
         })
         return res["removed"]
 
+    async def delete_subscription(self, subscription_id: str) -> bool:
+        """Delete a specific push subscription by its ID."""
+        res = await self._api("DELETE", f"/api/admin/apps/{self._app_id}/push/subscriptions/{subscription_id}")
+        return res.get("deleted", False)
+
     async def send_to_member(self, member_id: str, **payload) -> dict:
         """Send a push notification to a specific member."""
         return await self._api("POST", f"/api/admin/apps/{self._app_id}/push/send", {
